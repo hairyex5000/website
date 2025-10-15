@@ -1,0 +1,25 @@
+@import "tailwindcss";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
+
+h1 {
+    margin-bottom: 10px;
+    font-size: var(--text-3xl) /* 1.875rem = 30px */;
+    line-height: var(--tw-leading, var(--text-3xl--line-height) /* calc(2.25 / 1.875) ≈ 1.2 */);
+}
+
+h2 {
+    margin-bottom: 10px;
+    font-size: var(--text-2xl) /* 1.5rem = 24px */;
+    line-height: var(--tw-leading, var(--text-2xl--line-height) /* calc(2 / 1.5) ≈ 1.333333 */);
+
+}
+
+h3 {
+    margin-bottom: 5px;
+    font-size: var(--text-xl) /* 1.5rem = 24px */;
+    line-height: var(--tw-leading, var(--text-xl--line-height) /* calc(2 / 1.5) ≈ 1.333333 */);
+}
+
+p {
+    margin-bottom: 5px;
+}
