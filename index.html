@@ -9,10 +9,40 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 
-<body class="bg-white dark:bg-gray-900">
-    <div class="align-center"><img class="w-full mask-b-from-10% object-cover object-center max-h-[33vh]"
+<body id='body' class="bg-white dark:bg-gray-900 transition-colors duration-200 dark">
+    <script>
+        function initDarkMode() {
+            var tmp = document.getElementById('body')
+            var button = document.getElementById('btn-darkmode')
+            if (tmp.classList.contains('dark')) {
+                button.classList.remove('bi-moon-fill')
+                button.classList.remove('text-white')
+                button.classList.add('bi-sun-fill')
+                button.classList.add('text-black')
+            } else {
+                button.classList.remove('bi-sun-fill')
+                button.classList.remove('text-white')
+                button.classList.add('bi-moon-fill')
+                button.classList.add('text-white')
+            }
+        }
+        window.onload = initDarkMode
+        function toggleDarkMode() {
+            var tmp = document.getElementById('body')
+            if (tmp.classList.contains('dark')) {
+                tmp.classList.remove('dark')
+            } else {
+                tmp.classList.add('dark')
+            }
+            initDarkMode()
+        }
+    </script>
+    <div class="align-center transition"><img class="w-full mask-b-from-10% object-cover object-center max-h-[33vh]"
             src="banner.jpg" />
     </div>
+    <div onclick="toggleDarkMode()"
+        class="bottom-5 right-5 rounded-full w-15 h-15 shadow-black shadow-2xl dark:bg-white bg-gray-900 z-2 flex fixed"><i
+            id="btn-darkmode" class="m-auto bi text-2xl"></i></div>
     <div>
         <div class="m-auto p-5 text-black dark:text-white max-w-3xl">
             <h1>Spencer M.</h1>
