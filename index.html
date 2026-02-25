@@ -44,7 +44,7 @@
                 button.classList.add('text-white')
             }
         }
-        prefersDark.addListener(initDarkMode)
+        prefersDark.addListener(systemDarkMode)
         window.onload = initDarkMode
         function toggleDarkMode() {
             var tmp = document.getElementById('body')
