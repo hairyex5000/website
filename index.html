@@ -13,17 +13,23 @@
     <script>
         const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
         var runOnce = false;
+
+        function systemDarkMode() {
+            var tmp = document.getElementById('body');
+            if (prefersDark.matches) {
+                tmp.classList.add("dark");
+            } else if (tmp.classList.contains("dark")) {
+                tmp.classList.remove("dark")
+            }
+            runOnce = true;
+        }
+
         function initDarkMode() {
             var tmp = document.getElementById('body')
             var button = document.getElementById('btn-darkmode')
 
             if (!runOnce) {
-                if (prefersDark.matches) {
-                    tmp.classList.add("dark");
-                } else if (tmp.classList.contains("dark")) {
-                    tmp.classList.remove("dark")
-                }
-                runOnce = true;
+                systemDarkMode();
             }
 
             if (tmp.classList.contains('dark')) {
