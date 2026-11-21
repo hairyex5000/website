@@ -90,9 +90,9 @@
     </script>
     <script>
         (function () {
-            const CACHE_KEY = "spokane-weather-v1";
+            const CACHE_KEY = "sammamish-weather-v1";
             const CACHE_TTL_MS = 30 * 60 * 1000;
-            const WTTR_URL = "https://wttr.in/Spokane?format=j1";
+            const WTTR_URL = "https://wttr.in/Sammamish?format=j1";
             const DEFAULT_ICON = "bi-cloud";
 
             const WEATHER_CODE_TO_ICON = {
@@ -174,14 +174,14 @@
                 if (!aside) return;
                 const iconClass = WEATHER_CODE_TO_ICON[String(payload.weatherCode)] || DEFAULT_ICON;
                 const temp = Math.round(payload.tempF);
-                aside.setAttribute("aria-label", "Currently " + temp + " degrees Fahrenheit in Spokane");
+                aside.setAttribute("aria-label", "Currently " + temp + " degrees Fahrenheit in Sammamish");
                 aside.innerHTML = '<i class="bi ' + iconClass + '" aria-hidden="true"></i> <span>' + temp + '&deg;F</span>';
             }
 
             function renderFallback() {
                 const aside = document.getElementById("weather");
                 if (!aside) return;
-                aside.setAttribute("aria-label", "Spokane, weather unavailable");
+                aside.setAttribute("aria-label", "Sammamish, weather unavailable");
                 aside.textContent = "";
             }
 
@@ -216,7 +216,7 @@
                         renderWeather(payload);
                     })
                     .catch(function (err) {
-                        console.warn("Spokane weather widget:", err && err.message);
+                        console.warn("Sammamish weather widget:", err && err.message);
                         renderFallback();
                     });
             }
@@ -229,84 +229,100 @@
             });
         })();
     </script>
-    <div class="align-center transition hero-banner"><img alt="Gonzaga University" width="1600" height="401" fetchpriority="high"
+    <div class="align-center transition"><img alt="Gonzaga University" width="1600" height="401" fetchpriority="high"
             class="no-print w-full mask-b-from-10% object-cover object-center max-h-[33vh]" src="banner.jpg" />
     </div>
     <button onclick="toggleDarkMode()" aria-label="Toggle dark mode"
-        class="no-print bottom-5 right-5 rounded-full w-12 h-12 shadow-black shadow-2xl dark:bg-white bg-gray-900 z-2 flex fixed">
-        <i id="btn-darkmode" class="m-auto bi text-xl"></i>
+        class="no-print bottom-5 right-5 rounded-full w-15 h-15 shadow-black shadow-2xl dark:bg-white bg-gray-900 z-2 flex fixed">
+        <i id="btn-darkmode" class="m-auto bi text-2xl"></i>
     </button>
-    <main class="m-auto px-5 py-8 text-black dark:text-white max-w-3xl">
-        <header class="intro-card">
-            <p class="eyebrow">COMPUTER SCIENCE &middot; GONZAGA UNIVERSITY</p>
+    <main class="m-auto p-5 text-black dark:text-white max-w-3xl">
+        <header>
             <h1>Spencer M.</h1>
-            <p class="intro-copy">I build software for research and robotics, with a focus on machine learning, computer vision, and useful data systems.</p>
-            <p class="location-line">Spokane, Washington <img alt="United States flag" class="h-4 max-w-min inline" src="flag.png">
+            <h2>Computer Science Major and Developer @ Gonzaga</h2>
+            <h3>Sammamish, WA <img alt="United States flag" class="h-4 max-w-min inline" src="flag.png">
                 <span id="weather" class="ml-2 align-middle text-sm font-normal text-gray-600 dark:text-gray-300"
-                    aria-live="polite" aria-label="Spokane weather"></span>
-            </p>
-            <nav class="social-links no-print" aria-label="Social links">
-                <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/smundel" aria-label="LinkedIn"><i class="bi bi-linkedin"></i> LinkedIn</a>
-                <a target="_blank" rel="noopener" href="https://github.com/hairyex5000" aria-label="GitHub"><i class="bi bi-github"></i> GitHub</a>
-            </nav>
+                    aria-live="polite" aria-label="Sammamish weather"></span>
+            </h3>
+            <h3 class="no-print">
+                <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/smundel"
+                    class="hover:text-blue-400 transition bi bi-linkedin" aria-label="LinkedIn"></a>
+                <a target="_blank" rel="noopener" href="https://github.com/hairyex5000"
+                    class="hover:text-gray-600 transition bi bi-github" aria-label="GitHub"></a>
+            </h3>
         </header>
+        <p class="mt-5">I build software for research and robotics, with a focus on machine learning, computer vision, and useful data systems.</p>
 
-        <section class="resume-section" aria-labelledby="education-heading">
-            <h2 id="education-heading"><i class="bi bi-mortarboard-fill"></i> Education</h2>
-            <article class="resume-card">
-                <div class="card-heading"><h3>Gonzaga University</h3><span class="date">2024 &ndash; 2028</span></div>
-                <p class="muted">B.S. in Computer Science &middot; Spokane, WA</p>
-                <p>GPA: 3.76 &middot; Dean&#8217;s List (Fall 2024, Spring 2025, Spring 2026) &middot; President&#8217;s List (Fall 2025)</p>
-            </article>
+        <section class="mt-5">
+            <h2><i class="bi bi-mortarboard-fill"></i> Education</h2>
+            <h3><a class="hover:text-blue-400 transition" href="https://www.gonzaga.edu/" target="_blank" rel="noopener noreferrer">Gonzaga University</a> <i class="bi bi-box-arrow-up-right text-xs" aria-hidden="true"></i></h3>
+            <p><i class="bi bi-calendar-range-fill"></i> 2024 &ndash; 2028</p>
+            <p>B.S. in Computer Science &middot; Spokane, WA</p>
+            <p>Dean&#8217;s List (Fall 2024, Spring 2025, Spring 2026) &middot; President&#8217;s List (Fall 2025)</p>
         </section>
 
-        <section class="resume-section" aria-labelledby="experience-heading">
-            <h2 id="experience-heading"><i class="bi bi-person-workspace"></i> Research &amp; Experience</h2>
-            <article class="resume-card">
-                <div class="card-heading"><h3>Iris Recognition Pipeline &middot; Research Assistant</h3><span class="date">Spring 2026 &ndash; Present</span></div>
-                <p class="muted">Gonzaga University School of Engineering and Applied Science &middot; Spokane, WA</p>
-                <ul>
+        <section class="mt-5">
+            <h2><i class="bi bi-person-workspace"></i> Research &amp; Experience</h2>
+            <h3>Iris Recognition Pipeline &middot; Research Assistant</h3>
+            <p><i class="bi bi-building-fill"></i> <a class="hover:text-blue-400 transition" href="https://www.gonzaga.edu/school-of-engineering-applied-science/home" target="_blank" rel="noopener noreferrer">Gonzaga University School of Engineering and Applied Science</a> <i class="bi bi-box-arrow-up-right text-xs" aria-hidden="true"></i> &middot; Spokane, WA</p>
+            <p><i class="bi bi-calendar-range-fill"></i> Spring 2026 &ndash; Present</p>
+            <div class="ml-6">
+                <ul class="list-disc list-outside">
                     <li>Developing a biometric authentication pipeline with neural network based iris feature extraction.</li>
                     <li>Created a containerized Apptainer training environment for an NVIDIA H100 cluster and CUDA, along with an ingest pipeline for a large iris dataset.</li>
                 </ul>
-            </article>
-            <article class="resume-card">
-                <div class="card-heading"><h3>Physical Therapy Data Study &middot; Research Assistant</h3><span class="date">Fall 2025 &middot; Spring 2026</span></div>
-                <p class="muted">Gonzaga University School of Engineering and Applied Science &middot; Spokane, WA</p>
-                <ul>
+            </div>
+
+            <h3 class="mt-5">Physical Therapy Data Study &middot; Research Assistant</h3>
+            <p><i class="bi bi-building-fill"></i> <a class="hover:text-blue-400 transition" href="https://www.gonzaga.edu/school-of-engineering-applied-science/home" target="_blank" rel="noopener noreferrer">Gonzaga University School of Engineering and Applied Science</a> <i class="bi bi-box-arrow-up-right text-xs" aria-hidden="true"></i> &middot; Spokane, WA</p>
+            <p><i class="bi bi-calendar-range-fill"></i> Fall 2025 &middot; Spring 2026</p>
+            <div class="ml-6">
+                <ul class="list-disc list-outside">
                     <li>Built Python and pandas systems to combine survey exports and spreadsheets for an Eastern Washington University research study.</li>
                     <li>Set up an Auth0 OAuth flow and developed a Python web portal for researcher access.</li>
                 </ul>
-            </article>
-            <article class="resume-card">
-                <div class="card-heading"><h3>Technology Consultant</h3><span class="date">2020 &ndash; 2021</span></div>
-                <p class="muted">Northwest Behavioral Associates &middot; Bellevue, WA</p>
-                <ul><li>Digitized hundreds of pages of documents to support delivery of autism therapy services.</li></ul>
-            </article>
-        </section>
+            </div>
 
-        <section class="resume-section" aria-labelledby="activities-heading">
-            <h2 id="activities-heading"><i class="bi bi-joystick"></i> Robotics</h2>
-            <article class="resume-card">
-                <div class="card-heading"><h3>University Rover Challenge &middot; Gonzaga Robotics Club</h3><span class="date">2024 &ndash; Present</span></div>
-                <p>Developing microcontroller based rover systems and a Python computer vision pipeline using YOLO inference on NVIDIA Jetson.</p>
-            </article>
-            <article class="resume-card">
-                <div class="card-heading"><h3>FIRST Robotics &middot; Team #2976 Spartabots</h3><span class="date">2020 &ndash; 2023</span></div>
-                <p>Developed Java robot subsystems for a team that qualified for the world championship.</p>
-            </article>
-        </section>
-
-        <section class="resume-section" aria-labelledby="skills-heading">
-            <h2 id="skills-heading"><i class="bi bi-code-slash"></i> Skills</h2>
-            <div class="skill-groups">
-                <p><strong>Languages</strong><br>Python, Java, C/C++, JavaScript</p>
-                <p><strong>Frameworks</strong><br>Keras, Pandas, FastAPI, React.js, Node.js</p>
-                <p><strong>Tools</strong><br>Linux, Git, Docker, Apptainer, PostgreSQL, OpenAI API</p>
+            <h3 class="mt-5">Technology Consultant</h3>
+            <p><i class="bi bi-building-fill"></i> <a class="hover:text-blue-400 transition" href="https://nba-autism.org/" target="_blank" rel="noopener noreferrer">Northwest Behavioral Associates</a> <i class="bi bi-box-arrow-up-right text-xs" aria-hidden="true"></i> &middot; Bellevue, WA</p>
+            <p><i class="bi bi-calendar-range-fill"></i> 2020 &ndash; 2021</p>
+            <div class="ml-6">
+                <ul class="list-disc list-outside">
+                    <li>Digitized hundreds of pages of documents to support delivery of autism therapy services.</li>
+                </ul>
             </div>
         </section>
 
-        <footer class="site-footer">
+        <section class="mt-5">
+            <h2><i class="bi bi-joystick"></i> Extracurriculars</h2>
+            <h3>University Rover Challenge &middot; <a class="hover:text-blue-400 transition" href="https://www.instagram.com/gurobotics" target="_blank" rel="noopener noreferrer">Gonzaga Robotics Club</a> <i class="bi bi-box-arrow-up-right text-xs" aria-hidden="true"></i></h3>
+            <p><i class="bi bi-calendar-range-fill"></i> 2024 &ndash; Present</p>
+            <div class="ml-6">
+                <ul class="list-disc list-outside">
+                    <li>Developing microcontroller based rover systems and a Python computer vision pipeline using YOLO inference on NVIDIA Jetson.</li>
+                </ul>
+            </div>
+            <h3 class="mt-5">FIRST Robotics &middot; <a class="hover:text-blue-400 transition" href="https://spartabots.org/" target="_blank" rel="noopener noreferrer">Team #2976 Spartabots</a> <i class="bi bi-box-arrow-up-right text-xs" aria-hidden="true"></i></h3>
+            <p><i class="bi bi-calendar-range-fill"></i> 2020 &ndash; 2023</p>
+            <div class="ml-6">
+                <ul class="list-disc list-outside">
+                    <li>Developed Java robot subsystems for a team that qualified for the world championship.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="mt-5">
+            <h2><i class="bi bi-code-slash"></i> Skills</h2>
+            <div class="ml-6">
+                <ul class="list-disc list-outside">
+                    <li><strong>Languages:</strong> Python, Java, C/C++, JavaScript</li>
+                    <li><strong>Frameworks:</strong> Keras, Pandas, FastAPI, React.js, Node.js</li>
+                    <li><strong>Tools:</strong> Linux, Git, Docker, Apptainer, PostgreSQL, OpenAI API</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer class="mt-5 flex flex-wrap items-center justify-between gap-2">
             <p><i>&copy; Spencer M. 2025&ndash;2026</i></p>
             <a href="https://github.com/hairyex5000/website" target="_blank" rel="noopener noreferrer"
                 class="no-print group flex items-center gap-1.5 rounded-md bg-gray-100 px-2.5 py-1 text-xs text-gray-500 shadow-sm transition-all duration-200 hover:bg-gray-200 hover:text-gray-700 hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-200">
