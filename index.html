@@ -175,7 +175,9 @@
                 const iconClass = WEATHER_CODE_TO_ICON[String(payload.weatherCode)] || DEFAULT_ICON;
                 const temp = Math.round(payload.tempF);
                 aside.setAttribute("aria-label", "Currently " + temp + " degrees Fahrenheit in Sammamish");
-                aside.innerHTML = '<i class="bi ' + iconClass + '" aria-hidden="true"></i> <span>' + temp + '&deg;F</span>';
+                aside.innerHTML = '<i class="bi ' + iconClass + '" aria-hidden="true"></i><span>' + temp + '&deg;F</span>';
+                aside.classList.remove("weather-loading");
+                aside.classList.add("weather-loaded");
             }
 
             function renderFallback() {
@@ -243,7 +245,7 @@
             <h3 class="flex flex-wrap items-center gap-2">
                 <span>Sammamish, WA</span>
                 <img alt="United States flag" class="inline-block h-4 w-auto" src="flag.png">
-                <span id="weather" class="text-sm font-normal text-gray-600 dark:text-gray-300"
+                <span id="weather" class="weather-loading text-sm font-normal text-gray-600 dark:text-gray-300"
                     aria-live="polite" aria-label="Sammamish weather"></span>
             </h3>
             <h3 class="no-print">
@@ -256,18 +258,18 @@
         <p class="mt-5">I build software for research and robotics, with a focus on machine learning, computer vision, and useful data systems.</p>
 
         <section class="mt-5">
-            <h2><i class="bi bi-mortarboard-fill"></i> Education</h2>
-            <h3><a class="hover:text-blue-400 transition" href="https://www.gonzaga.edu/" target="_blank" rel="noopener noreferrer">Gonzaga University</a> <i class="bi bi-box-arrow-up-right text-xs" aria-hidden="true"></i></h3>
-            <p><i class="bi bi-calendar-range-fill"></i> 2024 &ndash; 2028</p>
+            <h2><i class="bi bi-mortarboard-fill"></i>Education</h2>
+            <h3><a class="hover:text-blue-400 transition" href="https://www.gonzaga.edu/" target="_blank" rel="noopener noreferrer">Gonzaga University</a><i class="bi bi-box-arrow-up-right text-xs" aria-hidden="true"></i></h3>
+            <p><i class="bi bi-calendar-range-fill"></i>2024 &ndash; 2028</p>
             <p>B.S. in Computer Science &middot; Spokane, WA</p>
             <p>Dean&#8217;s List (Fall 2024, Spring 2025, Spring 2026) &middot; President&#8217;s List (Fall 2025)</p>
         </section>
 
         <section class="mt-5">
-            <h2><i class="bi bi-person-workspace"></i> Research &amp; Experience</h2>
+            <h2><i class="bi bi-person-workspace"></i>Research &amp; Experience</h2>
             <h3>Iris Recognition Pipeline &middot; Research Assistant</h3>
-            <p><i class="bi bi-building-fill"></i> <a class="hover:text-blue-400 transition" href="https://www.gonzaga.edu/school-of-engineering-applied-science/home" target="_blank" rel="noopener noreferrer">Gonzaga University School of Engineering and Applied Science</a> <i class="bi bi-box-arrow-up-right text-xs" aria-hidden="true"></i> &middot; Spokane, WA</p>
-            <p><i class="bi bi-calendar-range-fill"></i> Spring 2026 &ndash; Present</p>
+            <p><i class="bi bi-building-fill"></i><a class="hover:text-blue-400 transition" href="https://www.gonzaga.edu/school-of-engineering-applied-science/home" target="_blank" rel="noopener noreferrer">Gonzaga University School of Engineering and Applied Science</a><i class="bi bi-box-arrow-up-right text-xs" aria-hidden="true"></i> &middot; Spokane, WA</p>
+            <p><i class="bi bi-calendar-range-fill"></i>Spring 2026 &ndash; Present</p>
             <div class="ml-6">
                 <ul class="list-disc list-outside">
                     <li>Developing a biometric authentication pipeline with neural network based iris feature extraction.</li>
@@ -276,8 +278,8 @@
             </div>
 
             <h3 class="mt-5">Physical Therapy Data Study &middot; Research Assistant</h3>
-            <p><i class="bi bi-building-fill"></i> <a class="hover:text-blue-400 transition" href="https://www.gonzaga.edu/school-of-engineering-applied-science/home" target="_blank" rel="noopener noreferrer">Gonzaga University School of Engineering and Applied Science</a> <i class="bi bi-box-arrow-up-right text-xs" aria-hidden="true"></i> &middot; Spokane, WA</p>
-            <p><i class="bi bi-calendar-range-fill"></i> Fall 2025 &middot; Spring 2026</p>
+            <p><i class="bi bi-building-fill"></i><a class="hover:text-blue-400 transition" href="https://www.gonzaga.edu/school-of-engineering-applied-science/home" target="_blank" rel="noopener noreferrer">Gonzaga University School of Engineering and Applied Science</a><i class="bi bi-box-arrow-up-right text-xs" aria-hidden="true"></i> &middot; Spokane, WA</p>
+            <p><i class="bi bi-calendar-range-fill"></i>Fall 2025 &middot; Spring 2026</p>
             <div class="ml-6">
                 <ul class="list-disc list-outside">
                     <li>Built Python and pandas systems to combine survey exports and spreadsheets for an Eastern Washington University research study.</li>
@@ -286,8 +288,8 @@
             </div>
 
             <h3 class="mt-5">Technology Consultant</h3>
-            <p><i class="bi bi-building-fill"></i> <a class="hover:text-blue-400 transition" href="https://nba-autism.org/" target="_blank" rel="noopener noreferrer">Northwest Behavioral Associates</a> <i class="bi bi-box-arrow-up-right text-xs" aria-hidden="true"></i> &middot; Bellevue, WA</p>
-            <p><i class="bi bi-calendar-range-fill"></i> 2020 &ndash; 2021</p>
+            <p><i class="bi bi-building-fill"></i><a class="hover:text-blue-400 transition" href="https://nba-autism.org/" target="_blank" rel="noopener noreferrer">Northwest Behavioral Associates</a><i class="bi bi-box-arrow-up-right text-xs" aria-hidden="true"></i> &middot; Bellevue, WA</p>
+            <p><i class="bi bi-calendar-range-fill"></i>2020 &ndash; 2021</p>
             <div class="ml-6">
                 <ul class="list-disc list-outside">
                     <li>Digitized hundreds of pages of documents to support delivery of autism therapy services.</li>
@@ -296,16 +298,16 @@
         </section>
 
         <section class="mt-5">
-            <h2><i class="bi bi-joystick"></i> Extracurriculars</h2>
-            <h3>University Rover Challenge &middot; <a class="hover:text-blue-400 transition" href="https://www.instagram.com/gurobotics" target="_blank" rel="noopener noreferrer">Gonzaga Robotics Club</a> <i class="bi bi-box-arrow-up-right text-xs" aria-hidden="true"></i></h3>
-            <p><i class="bi bi-calendar-range-fill"></i> 2024 &ndash; Present</p>
+            <h2><i class="bi bi-joystick"></i>Extracurriculars</h2>
+            <h3>University Rover Challenge &middot; <a class="hover:text-blue-400 transition" href="https://www.instagram.com/gurobotics" target="_blank" rel="noopener noreferrer">Gonzaga Robotics Club</a><i class="bi bi-box-arrow-up-right text-xs" aria-hidden="true"></i></h3>
+            <p><i class="bi bi-calendar-range-fill"></i>2024 &ndash; Present</p>
             <div class="ml-6">
                 <ul class="list-disc list-outside">
                     <li>Developing microcontroller based rover systems and a Python computer vision pipeline using YOLO inference on NVIDIA Jetson.</li>
                 </ul>
             </div>
-            <h3 class="mt-5">FIRST Robotics &middot; <a class="hover:text-blue-400 transition" href="https://spartabots.org/" target="_blank" rel="noopener noreferrer">Team #2976 Spartabots</a> <i class="bi bi-box-arrow-up-right text-xs" aria-hidden="true"></i></h3>
-            <p><i class="bi bi-calendar-range-fill"></i> 2020 &ndash; 2023</p>
+            <h3 class="mt-5">FIRST Robotics &middot; <a class="hover:text-blue-400 transition" href="https://spartabots.org/" target="_blank" rel="noopener noreferrer">Team #2976 Spartabots</a><i class="bi bi-box-arrow-up-right text-xs" aria-hidden="true"></i></h3>
+            <p><i class="bi bi-calendar-range-fill"></i>2020 &ndash; 2023</p>
             <div class="ml-6">
                 <ul class="list-disc list-outside">
                     <li>Developed Java robot subsystems for a team that qualified for the world championship.</li>
@@ -314,7 +316,7 @@
         </section>
 
         <section class="mt-5">
-            <h2><i class="bi bi-code-slash"></i> Skills</h2>
+            <h2><i class="bi bi-code-slash"></i>Skills</h2>
             <div class="ml-6">
                 <ul class="list-disc list-outside">
                     <li><strong>Languages:</strong> Python, Java, C/C++, JavaScript</li>

@@ -36,6 +36,41 @@ p {
     margin-bottom: 5px;
 }
 
+.bi-box-arrow-up-right {
+    margin-left: 0.35em;
+    vertical-align: 0.1em;
+}
+
+h2 > .bi,
+p > .bi:not(.bi-box-arrow-up-right),
+#weather > .bi {
+    margin-right: 0.35em;
+}
+
+#weather.weather-loading {
+    display: none;
+}
+
+#weather.weather-loaded {
+    animation: weather-fade-in 400ms ease-out both;
+}
+
+@keyframes weather-fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #weather.weather-loaded {
+        animation: none;
+    }
+}
+
 @media print {
 
     .no-print,
